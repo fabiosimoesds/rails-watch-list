@@ -1,0 +1,19 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://barnstaple.scottcinemas.co.uk/media/cinema_galleries/1/1496403044-912249278.jpg);">
+  <div class="container">
+    <h1 class="text-center">Save any kind of <strong>Movies</strong>!</h1>
+  </div>
+</div>
+
+<div class="container">
+<h1>My Lists</h1>
+  <div class="row">
+    <% @lists.each do |list| %>
+
+      <div class="col">
+        <div class="card-category m-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.image_url %>)">
+        <%= link_to list.name, list_path(list), class: "text-white text-decoration-none" %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
