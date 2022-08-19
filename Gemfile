@@ -73,3 +73,6 @@ gem "simple_form", github: "heartcombo/simple_form"
 
 # dotenv for security
 gem "dotenv-rails", groups: [:development, :test]
+
+# Cloudinary for images
+gem "cloudinary"

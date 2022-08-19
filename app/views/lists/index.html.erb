@@ -10,10 +10,9 @@
     <% @lists.each do |list| %>
 
       <div class="col">
-        <%= link_to list_path(list), {class: "text-white text-decoration-none"} do %>
-          <div class="card-category m-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.image_url %>)">
-        <p class="mb-0"><%=list.name%></p></div>
-        <% end %>
+        <div class="card-category m-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.image_url %>)">
+          <%= link_to list.name, list_path(list), class: "text-white text-decoration-none" %>
+        </div>
     </div>
     <% end %>
   </div>
