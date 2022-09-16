@@ -1,4 +1,4 @@
-<div class="container position-relative mt-4">
+<div class="container position-relative mt-4" data-controller="search-movies">
   <h1><%=@list.name%></h1>
   <%= link_to "Add a Movie", new_list_bookmark_path(@list), class: "btn btn-secondary position-absolute top-0 end-0"%>
   <div class="row my-4">
@@ -16,4 +16,8 @@
       </div>
     <%end%>
   </div>
+  <%= simple_form_for :movie do |t| %>
+  <%= t.input "Search Movie", as: :string, input_html: {data: {action: "keyup->search-movies#search", "search-movies-target": "query"}} %>
+  <% end %>
+  <div data-search-movies-target="list"></div>
 </div>
