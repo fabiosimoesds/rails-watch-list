@@ -22,13 +22,13 @@ export default class extends Controller {
         data.results.forEach(film => {
           let posterUrl = ""
           if (film.poster_path === null){
-            posterUrl = "https://i0.wp.com/www.charitycomms.org.uk/wp-content/uploads/2019/02/placeholder-image-square.jpg?fit=811%2C811&ssl=1&w=640"
+            posterUrl = "https://via.placeholder.com/600x900"
           } else {
             posterUrl = `https://image.tmdb.org/t/p/w600_and_h900_bestv2/${film.poster_path}`
           }
           console.log(posterUrl)
-          const card = `<div class="col g-3">
-                          <div class="card" style="width: 18rem;">
+          const card = `<div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class="card">
                             <img src="${posterUrl}" class="card-img-top" alt="...">
                             <div class="card-body">
                               <h5 class="card-title film-title">${film.original_title}</h5>
