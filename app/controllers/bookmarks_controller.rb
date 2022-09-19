@@ -5,7 +5,7 @@ class BookmarksController < ApplicationController
   end
 
   def create
-    existent_movie = Movie.where(params[:title])[0]
+    existent_movie = Movie.where(title: params[:title])[0]
     if existent_movie
       movie = existent_movie
     else
