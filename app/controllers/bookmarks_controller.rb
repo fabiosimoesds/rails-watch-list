@@ -5,7 +5,12 @@ class BookmarksController < ApplicationController
   end
 
   def create
-    movie = Movie.new(title: params[:title], overview: params[:overview], poster_url: params[:poster], rating: params[:rating])
+    existent_movie = Movie.where(params[:title])[0]
+    if existent_movie
+      movie = existent_movie
+    else
+      movie = Movie.new(title: params[:title], overview: params[:overview], poster_url: params[:poster], rating: params[:rating])
+    end
     if movie.save
       @bookmark = Bookmark.new(movie_id: movie.id)
       @bookmark.list = List.find(params[:list_id])
