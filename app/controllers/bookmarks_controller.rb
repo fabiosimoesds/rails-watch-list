@@ -17,7 +17,7 @@ class BookmarksController < ApplicationController
       if @bookmark.save
         redirect_to list_path(params[:list_id])
       else
-        render :new, status: :unprocessable_entity
+        render :new, status: :unprocessable_entity # I NEED TO GIVE A FEEDBACK TO THE CUSTOMER alert
       end
     end
   end
