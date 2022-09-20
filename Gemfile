@@ -76,3 +76,6 @@ gem "dotenv-rails", groups: [:development, :test]
 
 # Cloudinary for images
 gem "cloudinary"
+
+# Devise to handle Users
+gem "devise"
