@@ -79,3 +79,6 @@ gem "cloudinary"
 
 # Devise to handle Users
 gem "devise"
+
+# Pundit to handle authorization
+gem "pundit"

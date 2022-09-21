@@ -1,6 +1,7 @@
 class BookmarksController < ApplicationController
   def new
     @bookmark = Bookmark.new
+    authorize @bookmark
     @list = List.find(params[:list_id])
   end
 
@@ -13,6 +14,7 @@ class BookmarksController < ApplicationController
     end
     if movie.save
       @bookmark = Bookmark.new(movie_id: movie.id)
+      authorize @bookmark
       @bookmark.list = List.find(params[:list_id])
       if @bookmark.save
         redirect_to list_path(params[:list_id])
@@ -24,6 +26,7 @@ class BookmarksController < ApplicationController
 
   def destroy
     @bookmark = Bookmark.find(params[:id])
+    authorize @bookmark
     @bookmark.destroy
     redirect_to list_path(@bookmark.list), status: :see_other
   end

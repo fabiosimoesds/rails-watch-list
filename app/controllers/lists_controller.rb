@@ -1,20 +1,22 @@
 class ListsController < ApplicationController
   def index
-    @lists = List.where(user: current_user)
+    @lists = policy_scope(List)
   end
 
   def show
     @list = List.find(params[:id])
+    authorize @list
   end
 
   def new
     @list = List.new
+    authorize @list
   end
 
   def create
     @list = List.new(list_params)
     @list.user = current_user
-    @list.save
+    authorize @list
     if @list.save
       redirect_to list_path(@list)
     else
