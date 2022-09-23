@@ -1,10 +1,4 @@
 class BookmarksController < ApplicationController
-  def new
-    @bookmark = Bookmark.new
-    authorize @bookmark
-    @list = List.find(params[:list_id])
-  end
-
   def create
     existent_movie = Movie.where(title: params[:title])[0]
     if existent_movie

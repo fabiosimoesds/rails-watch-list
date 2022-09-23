@@ -1,16 +1,13 @@
 class ListsController < ApplicationController
   def index
     @lists = policy_scope(List)
+    @list = List.new
   end
 
   def show
-    @list = List.find(params[:id])
-    authorize @list
-  end
-
-  def new
+    @list_find = List.find(params[:id])
+    authorize @list_find
     @list = List.new
-    authorize @list
   end
 
   def create
