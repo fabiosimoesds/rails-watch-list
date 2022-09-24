@@ -14,12 +14,14 @@
           <li class="nav-item active">
             <%= link_to "My Lists", lists_path, class: "nav-link" %>
           </li>
-          <li class="nav-item">
-            <!-- Button trigger modal -->
-            <button type="button" class="nav-link border-0 bg-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              New List
-            </button>
-          </li>
+          <% if controller_name == "lists" %>
+            <li class="nav-item">
+              <!-- Button trigger modal -->
+              <button type="button" class="nav-link border-0 bg-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                New List
+              </button>
+            </li>
+          <% end %>
           <li class="nav-item">
             <%= button_to "Log out", destroy_user_session_path, method: :delete, data: { turbo: false }, class: "nav-link border-0 bg-white" %>
           </li>
@@ -45,23 +47,24 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New List</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <%= simple_form_for @list do |f| %>
-          <%= f.input :name %>
-          <%= f.input :photo, as: :file%>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-outline-secondary rounded-pill" data-bs-dismiss="modal">Close</button>
-        <%= f.submit class: "btn btn-secondary rounded-pill"%>
-        <% end %>
+<% if controller_name == "lists"%>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">New List</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <%= simple_form_for @list do |f| %>
+            <%= f.input :name %>
+            <%= f.input :photo, as: :file%>
+        </div>
+        <div class="modal-footer">
+            <%= f.submit class: "btn btn-secondary rounded-pill"%>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
-</div>
+<% end %>
