@@ -17,7 +17,7 @@
           <% if controller_name == "lists" %>
             <li class="nav-item">
               <!-- Button trigger modal -->
-              <button type="button" class="nav-link border-0 bg-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <button type="button" class="nav-link border-0 bg-white" data-bs-toggle="modal" data-bs-target="#exampleModal" data-modal-target="show-modal">
                 New List
               </button>
             </li>
@@ -45,10 +45,10 @@
   </div>
 </div>
 
-
-<!-- Modal -->
 <% if controller_name == "lists"%>
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<%= simple_form_for @list do |f| %> <!-- First line of the simple form has to be out of the modal to work -->
+<!-- Modal -->
+  <div class="modal fade" id="exampleModal" data-controller="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -56,7 +56,6 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <%= simple_form_for @list do |f| %>
             <%= f.input :name %>
             <%= f.input :photo, as: :file%>
         </div>
