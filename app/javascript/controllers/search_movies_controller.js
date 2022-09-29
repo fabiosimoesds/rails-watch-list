@@ -1,7 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 
 const apiKey = 'e6caf363437a9a502062a3a6f4a68627'; // KEEEY!
-// const apiKey = TMBD_KEY;
 // Connects to data-controller="search-movies"
 export default class extends Controller {
   static targets = ['list', 'query', 'id']
