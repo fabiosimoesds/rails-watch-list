@@ -1,7 +1,14 @@
+
 <header class="banner text-center" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://barnstaple.scottcinemas.co.uk/media/cinema_galleries/1/1496403044-912249278.jpg);">
   <div class="container">
+    <div class="logo-home row">
+      <%= image_tag "https://cdn-icons-png.flaticon.com/512/864/864818.png", class: "col-4"%>
+      <h1 class="col-8">Watch List</h1>
+    </div>
+  </div>
+  <div class="container">
     <h1 class="text-center">Create <strong>Lists</strong>!</h1>
-    <p class="text-center">Add <strong>Movies</strong>!,</p>
+    <p class="text-center">Add <strong>Movies</strong>,</p>
     <p class="text-center">Enjoy!</p>
     <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-secondary' %>
     <%= link_to 'Log in', new_user_session_path, class: 'btn btn-outline-secondary' %>
@@ -10,21 +17,21 @@
 
 <div class="home-body bg-secondary py-3">
   <div class="home-section text-white container">
-    <div class="row justify-content-center py-4">
-      <div class="col-4 home-text">
+    <div class="row justify-content-evenly py-4">
+      <div class="col-lg-4 col-md-12 home-text">
         <h2>Create your own lists</h2>
         <p>With Watch List you can Create your own movie list</p>
       </div>
-      <div class="home-images col-4">
+      <div class="home-images col-lg-4 col-md-12">
         <%= cl_image_tag("Home-page-lists_vg90gr", class: 'home-img') %>
       </div>
     </div>
   </div>
   <hr class="home-line">
   <div class="home-section text-white container">
-    <div class="row justify-content-center py-4">
-      <div class="col-4"><%= cl_image_tag("Home-page-search_tx6wzc", class: 'home-img') %></div>
-      <div class="col-4 home-text">
+    <div class="row justify-content-evenly py-4">
+      <div class="col-lg-4 col-md-12"><%= cl_image_tag("Home-page-search_tx6wzc", class: 'home-img') %></div>
+      <div class="col-lg-4 col-md-12 home-text">
         <h2>Search any movie</h2>
         <p>You can find any film you want on our search bar</p>
       </div>
@@ -32,12 +39,12 @@
   </div>
   <hr class="home-line">
   <div class="home-section text-white container">
-    <div class="row justify-content-center py-4">
-      <div class="col-4 home-text">
+    <div class="row justify-content-evenly py-4">
+      <div class="col-lg-4 col-md-12 home-text">
         <h2>Add movies to your list and have fun</h2>
         <p>Add a new movie to your list is simple and easy, just one click</p>
       </div>
-      <div class="col-4"><%= cl_image_tag("Home-page-film_wqidwe", class: 'home-img-add') %></div>
+      <div class="col-lg-4 col-md-12"><%= cl_image_tag("Home-page-film_wqidwe", class: 'home-img-add') %></div>
     </div>
   </div>
 </div>
