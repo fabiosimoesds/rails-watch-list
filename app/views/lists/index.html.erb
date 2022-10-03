@@ -1,6 +1,6 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://barnstaple.scottcinemas.co.uk/media/cinema_galleries/1/1496403044-912249278.jpg);">
+<div class="banner text-center" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://barnstaple.scottcinemas.co.uk/media/cinema_galleries/1/1496403044-912249278.jpg);">
   <div class="container">
-    <h1 class="text-center">Save any kind of <strong>Movies</strong>!</h1>
+    <h1 >Save any kind of <strong>Movies</strong>!</h1>
   </div>
 </div>
 
@@ -11,7 +11,7 @@
       <% @lists.each do |list| %>
 
         <div class="col-lg-3 col-md-4 col-sm-6">
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key, height: 300, crop: :fill %>')"
+          <div class="card-category text-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key, height: 300, crop: :fill %>')"
   >
             <%= link_to list.name, list_path(list), class: "text-white text-decoration-none" %>
           </div>
@@ -20,5 +20,3 @@
     <% end %>
   </div>
 </div>
-
-
