@@ -19,7 +19,7 @@
 // Home
 
 .home-img{
-  height: 250px;
+  max-height: 250px;
   width: auto;
 }
 
@@ -64,5 +64,14 @@ hr{
 @media screen and (max-width: 992px){
   .home-section{
     text-align: center;
+  }
+}
+
+@media screen and (max-width: 485px){
+  .home-img{
+    width: 220px;
+  }
+  .home-img-add{
+    width: 220px;
   }
 }
