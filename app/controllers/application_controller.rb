@@ -23,4 +23,9 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     lists_path
   end
+
+  # Setup your host to generate the absolute url needed to load your images from the external world
+  def default_url_options
+    { host: ENV['https://rails-fabio-watch-list.herokuapp.com/'] || 'localhost:3000' }
+  end
 end
