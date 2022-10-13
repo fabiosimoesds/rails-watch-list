@@ -1,0 +1,10 @@
+<%= simple_form_for @list do |f| %>
+  <div class="modal-body">
+    <%= f.input :name %>
+    <%= f.input :photo, as: :file%>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary rounded-pill" data-bs-dismiss="modal">Close</button>
+    <%= f.submit class: "btn btn-secondary rounded-pill", data: { action: "click->remote_modal#submitEnd" }%>
+  </div>
+<% end %>

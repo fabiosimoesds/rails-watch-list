@@ -17,9 +17,10 @@
           <% if controller_name == "lists" %>
             <li class="nav-item">
               <!-- Button trigger modal -->
-              <button type="button" class="nav-link border-0 bg-white" data-bs-toggle="modal" data-bs-target="#exampleModal" data-modal-target="show-modal">
-                New List
-              </button>
+              <%= link_to "New List", new_list_path, class: "nav-link border-0 bg-white", data: { controller: "list-modal" } %>
+              <%# <button type="button" class="nav-link border-0 bg-white" data-bs-toggle="modal" data-bs-target="#exampleModal" data-modal-target="show-modal">
+                New List %>
+              <%# </button> %>
             </li>
           <% end %>
           <li class="nav-item">

@@ -4,8 +4,11 @@
 
 import { application } from "./application"
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
+import ListModalController from "./list_modal_controller"
+application.register("list-modal", ListModalController)
+
+import RemoteModalController from "./remote_modal_controller"
+application.register("remote-modal", RemoteModalController)
 
 import SearchMoviesController from "./search_movies_controller"
 application.register("search-movies", SearchMoviesController)
