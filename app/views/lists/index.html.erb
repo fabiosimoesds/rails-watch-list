@@ -4,8 +4,10 @@
   </div>
 </div>
 
-<div class="container">
-<h1>My Lists</h1>
+<div class="container text-center">
+<hr class="title-separator">
+<h1>Your Lists:</h1>
+<hr class="title-separator">
   <div class="row g-3 list-card-row">
     <%unless @lists.empty?%>
       <% @lists.each do |list| %>
