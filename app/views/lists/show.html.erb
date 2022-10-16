@@ -1,26 +1,36 @@
 <div class="container position-relative my-4" data-controller="search-movies">
   <%= simple_form_for :movie do |t| %>
-  <%= t.input "Search Movie", as: :string, input_html: {data: {action: "keyup->search-movies#search", "search-movies-target": "query"}} %>
+  <div class="row">
+    <div class="col-md-2 col-4 pe-0 pe-0">
+      <div class="input-group-text search-label">Search:</div>
+    </div>
+    <div class="col-md-10 col-8 ps-0">
+      <%= t.input :search, label: false, as: :string, input_html: {data: {action: "keyup->search-movies#search", "search-movies-target": "query"}}, class: "form-control", placeholder: "Lord of the Rings" %>
+    </div>
+  </div>
   <% end %>
   <span class="d-none" data-search-movies-target="id"><%= @list_find.id %></span>
-  <hr>
   <div class="row m-0 g-3 list-card-row" data-search-movies-target="list">
   </div>
-    <h1>My <%=@list_find.name%> films</h1>
-    <%#= link_to "Add a Movie", new_list_bookmark_path(@list_find), class: "btn btn-secondary position-absolute top-0 end-0"%>
-    <div class="row m-0 g-3 list-card-row">
-      <%@list_find.bookmarks.each do |bookmark|%>
-        <div class="col-lg-3 col-md-4 col-sm-6">
-          <div class="card">
-            <img src=<%= bookmark.movie.poster_url %> class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title film-title"><%= bookmark.movie.title %></h5>
-              <p class="card-text"><%= bookmark.movie.rating %><i class="fa-solid fa-star text-warning"></i></p>
-              <p class="card-text film-overview"><%= bookmark.movie.overview %></p>
-              <%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-danger fw-bold"%>
-            </div>
+  <div class="text-center">
+    <hr class="title-separator">
+    <h1>Your <%=@list_find.name%> films:</h1>
+    <hr class="title-separator">
+  </div>
+  <%#= link_to "Add a Movie", new_list_bookmark_path(@list_find), class: "btn btn-secondary position-absolute top-0 end-0"%>
+  <div class="row m-0 g-3 list-card-row">
+    <%@list_find.bookmarks.each do |bookmark|%>
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="card">
+          <img src=<%= bookmark.movie.poster_url %> class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title film-title"><%= bookmark.movie.title %></h5>
+            <p class="card-text"><%= bookmark.movie.rating %><i class="fa-solid fa-star text-warning"></i></p>
+            <p class="card-text film-overview"><%= bookmark.movie.overview %></p>
+            <%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-danger fw-bold"%>
           </div>
         </div>
-      <%end%>
-    </div>
+      </div>
+    <%end%>
+  </div>
 </div>
