@@ -8,20 +8,20 @@
 <hr class="title-separator">
 <h1>Your Lists:</h1>
 <hr class="title-separator">
-  <div class="row g-3 list-card-row">
+  <div class="row g-3 list-card-row mb-5">
     <%unless @lists.empty?%>
       <% @lists.each do |list| %>
 
         <div class="col-lg-3 col-md-4 col-sm-6">
           <% if list.photo.key %>
-            <div class="card-category text-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key, height: 300, crop: :fill %>')">
-              <%= link_to list.name, list_path(list), class: "text-white text-decoration-none" %>
-            </div>
+            <div class="card-category text-center position-relative" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key, height: 300, crop: :fill %>')">
           <% else %>
-            <div class="card-category text-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path("Standard-list-photo_nxghob",  height: 300, crop: :fill) %>')">
-              <%= link_to list.name, list_path(list), class: "text-white text-decoration-none" %>
-            </div>
+            <div class="card-category text-center position-relative" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path("Standard-list-photo_nxghob",  height: 300, crop: :fill) %>')">
           <% end %>
+              <%= link_to list.name, list_path(list), class: "text-white text-decoration-none" %>
+              <%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, list_path(list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "fw-bold position-absolute delete-list"%>
+              <%= link_to '<i class="fa-solid fa-pen-to-square"></i>'.html_safe, edit_list_path(list), class: 'position-absolute edit-list' %>
+            </div>
         </div>
       <% end %>
     <% end %>
