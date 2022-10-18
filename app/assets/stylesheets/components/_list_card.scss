@@ -14,6 +14,20 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
+.delete-list{
+  color: rgb(247, 164, 164);
+  top: 83%;
+  right: 5%;
+  font-size: .75rem;
+}
+
+.edit-list{
+  color: white;
+  top: 83%;
+  right: 12%;
+  font-size: .75rem;
+}
+
 @media only screen and (max-width: 576px) {
   .list-card-row{
     text-align: -webkit-center;

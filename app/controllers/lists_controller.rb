@@ -21,6 +21,29 @@ class ListsController < ApplicationController
     end
   end
 
+  def edit
+    @list = List.find(params[:id])
+    authorize @list
+  end
+
+  def update
+    @list = List.find(params[:id])
+    authorize @list
+    @list.update(list_params)
+    if @list.save
+      redirect_to lists_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @list = List.find(params[:id])
+    authorize @list
+    @list.destroy
+    redirect_to lists_path, status: :see_other
+  end
+
   private
 
   def list_params
