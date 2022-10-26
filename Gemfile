@@ -83,3 +83,5 @@ gem "devise"
 
 # Pundit to handle authorization
 gem "pundit"
+
+gem 'whenever', require: false
