@@ -7,6 +7,7 @@
 <div class="container text-center">
 <hr class="title-separator">
 <h1>Your Lists:</h1>
+<%= link_to 'export csv', "#{lists_path}.csv" %>
 <hr class="title-separator">
   <div class="row g-3 list-card-row mb-5">
     <%unless @lists.empty?%>

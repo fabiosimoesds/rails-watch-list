@@ -2,6 +2,11 @@ class ListsController < ApplicationController
   def index
     @lists = policy_scope(List)
     @list = List.new
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @lists.to_csv, filename: "list-#{Date.today}.csv" }
+    end
   end
 
   def show
