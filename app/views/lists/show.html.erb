@@ -19,7 +19,7 @@
   </div>
   <%#= link_to "Add a Movie", new_list_bookmark_path(@list_find), class: "btn btn-secondary position-absolute top-0 end-0"%>
   <div class="row m-0 g-3 list-card-row">
-    <%@list_find.bookmarks.each do |bookmark|%>
+    <%@list_find.bookmarks.includes(:movie).each do |bookmark|%>
       <div class="col-lg-3 col-md-4 col-sm-6">
         <div class="card">
           <img src=<%= bookmark.movie.poster_url %> class="card-img-top" alt="...">
