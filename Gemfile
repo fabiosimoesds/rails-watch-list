@@ -85,3 +85,5 @@ gem "devise"
 gem "pundit"
 
 gem 'whenever', require: false
+
+gem 'bullet', group: 'development'
