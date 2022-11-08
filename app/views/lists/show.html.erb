@@ -16,6 +16,9 @@
     <hr class="title-separator">
     <h1>Your <%=@list_find.name%> films:</h1>
     <hr class="title-separator">
+  <div class="row">
+    <%= link_to 'Export to CSV', "#{list_path(@list_find)}.csv", class: "link-secondary mb-3 col-lg-2 col-md-4" %>
+  </div>
   </div>
   <%#= link_to "Add a Movie", new_list_bookmark_path(@list_find), class: "btn btn-secondary position-absolute top-0 end-0"%>
   <div class="row m-0 g-3 list-card-row">

@@ -11,6 +11,11 @@ class ListsController < ApplicationController
 
   def show
     @list_find = List.find(params[:id])
+    @movies = @list_find.movies
+    respond_to do |format|
+      format.html
+      format.csv { send_data @movies.to_csv, filename: "#{@list_find.name}-movies-#{Date.today}.csv" }
+    end
     authorize @list_find
     @list = List.new
   end
