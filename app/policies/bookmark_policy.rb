@@ -6,10 +6,6 @@ class BookmarkPolicy < ApplicationPolicy
     # end
   end
 
-  def new?
-    create?
-  end
-
   def create?
     true
   end
