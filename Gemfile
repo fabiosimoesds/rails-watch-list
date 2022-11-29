@@ -80,6 +80,7 @@ gem "cloudinary"
 
 # Devise to handle Users
 gem "devise"
+gem "devise_invitable"
 
 # Pundit to handle authorization
 gem "pundit"
