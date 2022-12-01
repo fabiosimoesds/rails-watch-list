@@ -1,4 +1,5 @@
 <div class="container position-relative my-4" data-controller="search-movies">
+  <%# Search Engine %>
   <%= simple_form_for :movie do |t| %>
   <div class="row">
     <div class="col-md-2 col-4 pe-0 pe-0">
@@ -12,15 +13,18 @@
   <span class="d-none" data-search-movies-target="id"><%= @list_find.id %></span>
   <div class="row m-0 g-3 list-card-row" data-search-movies-target="list">
   </div>
+
+
   <div class="text-center">
     <hr class="title-separator">
     <h1>Your <%=@list_find.name%> films:</h1>
     <hr class="title-separator">
-  <div class="row">
-    <%= link_to 'Export to CSV', "#{list_path(@list_find)}.csv", class: "link-secondary mb-3 col-lg-2 col-md-4" %>
+    <div class="row">
+      <%= link_to 'Export to CSV', "#{list_path(@list_find)}.csv", class: "link-secondary mb-3 col-lg-2 col-md-4" %>
+      <%= link_to 'Invite a friend', new_user_invitation_path, class: "link-secondary mb-3 col-lg-2 col-md-4" %>
+    </div>
+
   </div>
-  </div>
-  <%#= link_to "Add a Movie", new_list_bookmark_path(@list_find), class: "btn btn-secondary position-absolute top-0 end-0"%>
   <div class="row m-0 g-3 list-card-row">
     <%@list_find.bookmarks.includes(:movie).each do |bookmark|%>
       <div class="col-lg-3 col-md-4 col-sm-6">
