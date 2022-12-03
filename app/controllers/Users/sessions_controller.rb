@@ -15,6 +15,7 @@ class Users::SessionsController < Devise::SessionsController
     if resource.email.empty?
       clean_up_passwords resource
       set_minimum_password_length
+      set_flash_message!(:alert, :sign_in_error)
       render :new, status: :unprocessable_entity
     else
       set_flash_message!(:notice, :signed_in)
